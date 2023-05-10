@@ -77,7 +77,7 @@ exports.Login = async (req, res) => {
           }
         } else {
           const error = new APIError("Incorrect Password!", status.FORBIDDEN);
-          re.status(502).json({
+          res.status(502).json({
             message: error.message,
             stack: error.stack,
           });

@@ -6,14 +6,13 @@ const { authRoutes, userRoutes, vendorRoutes } = require('./routes/index.routes'
 const { getJwtStrategy } = require('./config/passport')
 const globalError = require('./middlewares/globalError')
 var app = express();
-const helmet = require("helmet");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const mongoSanitize = require("express-mongo-sanitize");
 //prevent paramater pollution
 app.use(hpp());
 //stop headers attack
-app.use(helmet());
+
 //stop frm going hacker into html file using inline javascript
 app.use(xss());
 //stope no sql query injection
